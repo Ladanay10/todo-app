@@ -1,0 +1,22 @@
+.empty {
+	margin-top: 20px;
+	border-top: 1px solid #333333;
+	border-radius: 8px;
+	padding: 64px 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+.text {
+	align-items: center;
+	gap: 8px;
+	display: flex;
+	flex-direction: column;
+	color: #808080;
+	font-size: 20px;
+}
+.bold {
+	font-weight: 700;
+}
