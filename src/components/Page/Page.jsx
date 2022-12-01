@@ -7,7 +7,6 @@ import { Empty } from '../Empty/Empty';
 export const Page = () => {
 	const [input, setInput] = useState('');
 	const [todos, setTodos] = useState([]);
-	// const [complete, setComplete] = useState(false);
 	const handleChange = (e) => {
 		setInput(e.target.value);
 	}
@@ -22,6 +21,7 @@ export const Page = () => {
 	const handleComplete = (todo_comp) => {
 		setTodos(todos.filter(completed => completed !== todo_comp))
 	}
+
 	return (
 		<div>
 			<form onSubmit={handleSubmit} action="">
@@ -31,12 +31,13 @@ export const Page = () => {
 
 			<div className={cl.tasks}>
 				<div className={cl.bottom_text}>
-					Всіх завдань: <span className={cl.num}>{todos.length}</span>
-
+					<p>Всіх завдань: <span className={cl.num}>{todos.length}</span></p>
+					<p>Виконаних: <span className={cl.num}>{todos.filter((item) => item.completed === true).length} з {todos.length} </span></p>
 				</div>
 
 				{todos.map((item) => (
 					<Task
+						todos={todos}
 						key={item.id}
 						handleComplete={handleComplete}
 						task={item}
@@ -50,14 +51,6 @@ export const Page = () => {
 				}
 
 			</div>
-			{/* Тут я просто перевіряв чи змінюється значення в масиві(setTodos). Для цього і створив функцію handleComplete. 
-			Правда воно ітак не фуричить норм, тому я хз */}
-			{
-				todos.map((item) => (
-					<div key={item.id}>{item.completed ? <h1>True</h1> : <h1>False</h1>} </div>
-				))
-			}
-
 		</div>
 	)
 }

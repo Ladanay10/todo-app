@@ -8,9 +8,9 @@ export const CheckBox = ({ onClick, complete }) => {
 			{
 				complete
 					?
-					<RiCheckboxCircleFill size={22} className={cl.completeIcon} />
-					:
 					<RiCheckboxBlankCircleLine size={22} className={cl.icon} />
+					:
+					<RiCheckboxCircleFill size={22} className={cl.completeIcon} />
 			}
 		</div>
 	)

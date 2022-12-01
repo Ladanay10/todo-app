@@ -5,17 +5,16 @@ import { DeleteBtn } from '../Btn/DeleteBtn';
 import { CheckBox } from '../CheckBox/CheckBox';
 
 export const Task = ({ task, removeTask, handleComplete }) => {
-	const [complete, setComplete] = useState(task.completed);
+	const [complete, setComplete] = useState(true);
 	const handleClick = () => {
 		setComplete(!complete);
-		const newS = (task.completed) = complete;
-		handleComplete(newS);
+		const check = (task.completed) = complete;
+		handleComplete(check);
 	}
-
 	return (
 		<div key={task.id} className={cl.task}>
 			<CheckBox complete={complete} onClick={handleClick} />
-			<p className={complete ? cl.text_comp : cl.text}>{task.text}</p>
+			<p className={complete ? cl.text : cl.text_comp}>{task.text}</p>
 			<DeleteBtn onClick={() => removeTask(task)} />
 		</div>
 	)
