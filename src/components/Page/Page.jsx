@@ -11,12 +11,15 @@ export const Page = () => {
 		setInput(e.target.value);
 	}
 	const handleSubmit = (e) => {
-		setTodos([...todos, { id: Date.now(), text: input, completed: false }]);
 		e.preventDefault();
-		setInput('');
+		if (input.trim()) {
+			setTodos([...todos, { id: Date.now(), text: input, completed: false }]);
+			setInput('');
+		}
+		return null
 	}
-	const removeTask = (todo) => {
-		setTodos(todos.filter(id => id !== todo))
+	const removeTask = (todoId) => {
+		setTodos(todos.filter(id => id !== todoId))
 	}
 	const handleComplete = (todo_comp) => {
 		setTodos(todos.filter(completed => completed !== todo_comp))
@@ -24,7 +27,7 @@ export const Page = () => {
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit} action="">
+			<form onSubmit={handleSubmit} >
 				<Input onChange={handleChange} value={input} type="text" placeholder='Введіть ваше завдання...' />
 				<Btn>Добавити</Btn>
 			</form>
