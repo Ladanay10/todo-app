@@ -27,7 +27,7 @@ export const Page = () => {
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit} >
+			<form className={cl.form} onSubmit={handleSubmit} >
 				<Input onChange={handleChange} value={input} type="text" placeholder='Введіть ваше завдання...' />
 				<Btn>Добавити</Btn>
 			</form>

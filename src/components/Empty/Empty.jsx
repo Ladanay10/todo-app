@@ -6,7 +6,7 @@ export const Empty = () => {
 	<div className={cl.empty}>
 		<img src={img1} alt="clipboard" />
 		<div className={cl.text}>
-			<span className={cl.bold}>У вас немає завадань</span>
+			<span className={cl.bold}>У вас немає завдань</span>
 			Створюйте та виконуйте свої справи
 		</div>
 	</div>
